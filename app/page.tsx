@@ -37,12 +37,16 @@ export default function Home() {
           <span className="text-white font-bold underline decoration-yellow-400 underline-offset-4"> Free Forever.</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-6">
-          <button className="bg-yellow-400 text-slate-950 px-14 py-5 font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_50px_rgba(250,204,21,0.15)]">
-            Explore Library
-          </button>
-          <button className="border border-slate-800 px-14 py-5 font-black uppercase tracking-widest hover:bg-slate-800 transition-all text-slate-400">
-            Learn More
-          </button>
+          <Link href="/read/the-ace-trader">
+            <button className="bg-yellow-400 text-slate-950 px-14 py-5 font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_50px_rgba(250,204,21,0.15)]">
+              Explore Library
+            </button>
+          </Link>
+          <Link href="/about">
+            <button className="border border-slate-800 px-14 py-5 font-black uppercase tracking-widest hover:bg-slate-800 transition-all text-slate-400">
+              Learn More
+            </button>
+          </Link>
         </div>
       </header>
 
