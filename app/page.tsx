@@ -50,7 +50,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 pb-40">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {genres.map((genre) => (
-            <div key={genre.name} className={`group p-12 border ${genre.color} bg-slate-900/30 backdrop-blur-xl hover:bg-slate-900 transition-all cursor-pointer relative overflow-hidden h-[400px] flex flex-col justify-end`}>
+            <div key={genre.name} className={`group p-12 border ${genre.color} bg-slate-900/30 backdrop-blur-xl hover:bg-slate-900 transition-all cursor-pointer relative overflow-hidden h-100 flex flex-col justify-end`}>
               <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{genre.icon}</div>
               <h3 className="text-3xl font-black italic uppercase group-hover:text-yellow-400 transition-colors mb-2">
                 {genre.name}
