@@ -2,6 +2,8 @@ import Link from "next/link";
 // 1. IMPORT IMAGE
 import Image from "next/image";
 
+export const dynamic = 'force-dynamic';
+
 export default async function GenrePage({ 
   params 
 }: { 
