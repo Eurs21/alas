@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function Home() {
   const genres = [
-    { name: 'Action', color: 'border-red-500', icon: '⚔️', desc: 'High-octane battles.' },
-    { name: 'Romance', color: 'border-pink-500', icon: '❤️', desc: 'Global heartbeats.' },
-    { name: 'Motivational', color: 'border-yellow-400', icon: '🔥', desc: 'Unlock your potential.' },
-    { name: 'Adventure', color: 'border-emerald-500', icon: '🗺️', desc: 'Explore the unknown.' },
+    { name: 'Action', color: 'border-red-500', icon: '⚔️', desc: 'High-octane battles.', slug: 'action' },
+    { name: 'Romance', color: 'border-pink-500', icon: '❤️', desc: 'Global heartbeats.', slug: 'romance' },
+    { name: 'Motivational', color: 'border-yellow-400', icon: '🔥', desc: 'Unlock your potential.', slug: 'motivational' },
+    { name: 'Adventure', color: 'border-emerald-500', icon: '🗺️', desc: 'Explore the unknown.', slug: 'adventure' },
   ];
 
   return (
@@ -51,25 +51,37 @@ export default function Home() {
       </header>
 
       {/* Genre Grid */}
-      <section className="max-w-7xl mx-auto px-6 pb-40">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {genres.map((genre) => (
-            <div key={genre.name} className={`group p-12 border ${genre.color} bg-slate-900/30 backdrop-blur-xl hover:bg-slate-900 transition-all cursor-pointer relative overflow-hidden h-100 flex flex-col justify-end`}>
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">{genre.icon}</div>
-              <h3 className="text-3xl font-black italic uppercase group-hover:text-yellow-400 transition-colors mb-2">
-                {genre.name}
-              </h3>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
-                {genre.desc}
-              </p>
-              {/* Decorative "Alas" Background Text */}
-              <div className="absolute -top-10 -right-10 text-[120px] opacity-[0.03] font-black uppercase italic pointer-events-none">
-                {genre.name[0]}
-              </div>
-            </div>
-          ))}
+<section className="max-w-7xl mx-auto px-6 pb-40">
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    {genres.map((genre) => (
+      /* CHANGE: href now points to a dynamic route folder 
+         e.g., /genre/action, /genre/romance, etc.
+      */
+      <Link 
+        key={genre.name} 
+        href={`/genre/${genre.slug}`} 
+        className="contents"
+      >
+        <div className={`group p-12 border ${genre.color} bg-slate-900/30 backdrop-blur-xl hover:bg-slate-900 transition-all cursor-pointer relative overflow-hidden h-100 flex flex-col justify-end`}>
+          <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">
+            {genre.icon}
+          </div>
+          <h3 className="text-3xl font-black italic uppercase group-hover:text-yellow-400 transition-colors mb-2">
+            {genre.name}
+          </h3>
+          <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
+            {genre.desc}
+          </p>
+          
+          {/* Decorative "Alas" Background Text */}
+          <div className="absolute -top-10 -right-10 text-[120px] opacity-[0.03] font-black uppercase italic pointer-events-none">
+            {genre.name[0]}
+          </div>
         </div>
-      </section>
+      </Link>
+    ))}
+  </div>
+</section>
     </main>
   );
 }
